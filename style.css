@@ -1,0 +1,223 @@
+/* Name: My Day 
+version: v 0.0.1
+Author: Ridwan Alawode 
+____________________________________
+____________________________________*/
+
+/* Contents
+
+Resets.......1.0
+Generals.......2.0
+Components.......3.0
+____________________________________*/
+
+/* 1.0  Resets 
+_____________________________________*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  all: unset;
+}
+
+/* 2.0  Generals
+_____________________________________*/
+:root {
+  --color-primary100: #333333;
+  --color-secondary100: #ffffff;
+  --color-acc-blue100: #004455;
+  --color-acc-green100: #00d455;
+  --color-acc-red100: #ff2a2a;
+  --color-acc-orange100: #ff6600;
+  --font-primary: 'Bebas Neue';
+  --font-secondary: 'Atkinson Hyperlegible';
+}
+
+html,
+body {
+  height: 100vh;
+  overflow: hidden;
+  font-family: var(--font-primary);
+  background-color: var(--color-primary100);
+}
+
+/* 3.0  Componenet
+_____________________________________*/
+
+/* 3.1  Font
+    _________________*/
+body {
+  color: var(--color-secondary100);
+}
+
+.type-grade-1 {
+  font-size: 5vw;
+  font-family: var(--font-primary);
+  font-weight: bold;
+}
+
+.type-grade-2 {
+  font-size: 2vw;
+  font-family: var(--font-secondary);
+  font-weight: bold;
+  text-align: center;
+}
+
+.type-grade-3 {
+  font-size: 1.5vw;
+  font-weight: 200;
+  font-family: inherit;
+}
+
+@media screen and (orientation: portrait) {
+  .type-grade-1 {
+    font-size: 20vw;
+  }
+  .type-grade-2 {
+    font-size: 8vw;
+  }
+  .type-grade-3 {
+    font-size: 5vw;
+  }
+
+  
+}
+
+/* 3.2 Zone Indicator
+    _________________*/
+.zone-indicator {
+  width: 3vw;
+  height: 3vw;
+  border-radius: 50%;
+  background-color: var(--color-secondary100);
+}
+
+@media screen and (orientation: portrait) {
+    .zone-indicator {
+    width: 10vw;
+    height: 10vw;
+  }
+}
+
+/* 4.0  Layout
+_____________________________________*/
+
+.app-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+
+@media screen and (orientation: portrait) {
+  .app-wrapper {
+    flex-flow: row nowrap;
+  }
+}
+
+.tab-one {
+  flex-grow: 2;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+
+.tab-two {
+  position: relative;
+}
+
+.tab-two svg {
+  width: 100%;
+}
+
+.indication-container.vert {
+  display: none;
+}
+
+@media screen and (orientation: portrait) {
+    .tab-one {
+        padding: 10vw;
+    }
+
+    .words-to-go-by {
+     margin-top: 20vw;
+    }
+  .indication-container.vert {
+    display: block;
+  }
+  .indication-container.horz {
+    display: none;
+  }
+
+  /* .tab-two .indication-container {
+        width: fit-content;
+    } */
+
+  .tab-two svg {
+    width: auto;
+    height: 100vh;
+  }
+}
+
+@media screen and  (min-aspect-ratio: 350/100) {
+
+    .app-wrapper{
+        justify-content: center;
+    }
+    .tab-one{
+        display: none;
+    }
+
+}
+@media screen and  (max-aspect-ratio: 100/350) {
+
+    .app-wrapper{
+        justify-content: center;
+    }
+    .tab-one{
+        display: none;
+    }
+
+}
+
+
+.pulse  {
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: pulse 1s ease-out infinite;
+}
+
+@keyframes pulse {
+    from {
+        opacity: 1;
+        scale : 1 1;
+    }
+
+    to {
+        opacity: 0;
+        scale: 2;
+    }
+}
+
+
+.container {
+  margin: env(safe-area-inset-top) 
+          env(safe-area-inset-right) 
+          env(safe-area-inset-bottom) 
+          env(safe-area-inset-left) !important;
+}
