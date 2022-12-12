@@ -6,6 +6,9 @@ const assets = [
 ];
 
 self.addEventListener('install', (event) => {
+  // check if request is made by chrome extensions or web page
+  // if request is made for web page url must contains http.
+  if (!(event.request.url.indexOf('http') === 0)) return; // skip the request. if request is not made with http protocol
   event.waitUntil(
     caches.open('assets').then((cache) => {
       cache.addAll(assets);
